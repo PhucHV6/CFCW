@@ -33,6 +33,30 @@ const Onboarding: React.FC<Props> = ({ onSelect }) => {
             </div>
 
             <div className="grid grid-cols-1 gap-4">
+                {/* Big Game Hunter */}
+                <button
+                    onClick={() => onSelect(Persona.BIG_GAMES)}
+                    className="group w-full bg-white border border-slate-100 rounded-[2rem] overflow-hidden hover:border-blue-600 hover:shadow-xl transition-all duration-500 text-left flex flex-col"
+                >
+                    <div className="h-32 w-full overflow-hidden shrink-0 relative">
+                        <img
+                            src="https://img.chelseafc.com/image/upload/f_auto,g_center,w_600,q_90/v1749643518/site-sections/tickets/women/CFC_Women_Vibes.jpg"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            alt="Major Match"
+                        />
+                        <span className="absolute top-3 left-3 text-[9px] font-black uppercase tracking-widest text-amber-600 bg-white/90 backdrop-blur px-3 py-1 rounded-full shadow-sm">
+                            Match Hunting
+                        </span>
+                    </div>
+                    <div className="p-5 flex-1 relative">
+                        <p className={`font-black text-lg uppercase tracking-tight mb-1 text-[${primaryBlue}]`}>Big Game Hunter</p>
+                        <p className="text-xs text-slate-500 leading-relaxed font-medium">Hunt the tickets for big matches. Focus on showdowns.</p>
+                        <div className="absolute bottom-5 right-5 w-8 h-8 rounded-full border border-slate-100 flex items-center justify-center text-slate-300 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                            <i className="fa-solid fa-chevron-right text-xs"></i>
+                        </div>
+                    </div>
+                </button>
+
                 {/* Die-Hard Fan */}
                 <button
                     onClick={() => onSelect(Persona.DIE_HARD)}
@@ -75,30 +99,6 @@ const Onboarding: React.FC<Props> = ({ onSelect }) => {
                     <div className="p-5 flex-1 relative">
                         <p className={`font-black text-lg uppercase tracking-tight mb-1 text-[${primaryBlue}]`}>Weekend Outing</p>
                         <p className="text-xs text-slate-500 leading-relaxed font-medium">Select variety of bundle or premium experiences.</p>
-                        <div className="absolute bottom-5 right-5 w-8 h-8 rounded-full border border-slate-100 flex items-center justify-center text-slate-300 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                            <i className="fa-solid fa-chevron-right text-xs"></i>
-                        </div>
-                    </div>
-                </button>
-
-                {/* Big Game Hunter */}
-                <button
-                    onClick={() => onSelect(Persona.BIG_GAMES)}
-                    className="group w-full bg-white border border-slate-100 rounded-[2rem] overflow-hidden hover:border-blue-600 hover:shadow-xl transition-all duration-500 text-left flex flex-col"
-                >
-                    <div className="h-32 w-full overflow-hidden shrink-0 relative">
-                        <img
-                            src="https://img.chelseafc.com/image/upload/f_auto,g_center,w_600,q_90/v1749643518/site-sections/tickets/women/CFC_Women_Vibes.jpg"
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                            alt="Major Match"
-                        />
-                        <span className="absolute top-3 left-3 text-[9px] font-black uppercase tracking-widest text-amber-600 bg-white/90 backdrop-blur px-3 py-1 rounded-full shadow-sm">
-                            Match Hunting
-                        </span>
-                    </div>
-                    <div className="p-5 flex-1 relative">
-                        <p className={`font-black text-lg uppercase tracking-tight mb-1 text-[${primaryBlue}]`}>Big Game Hunter</p>
-                        <p className="text-xs text-slate-500 leading-relaxed font-medium">Hunt the tickets for big matches. Focus on showdowns.</p>
                         <div className="absolute bottom-5 right-5 w-8 h-8 rounded-full border border-slate-100 flex items-center justify-center text-slate-300 group-hover:bg-blue-600 group-hover:text-white transition-all">
                             <i className="fa-solid fa-chevron-right text-xs"></i>
                         </div>
