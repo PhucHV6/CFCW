@@ -6,6 +6,7 @@ import RosterScreen from './screens/RosterScreen';
 import PlayerProfileScreen from './screens/PlayerProfileScreen';
 import AboutScreen from './screens/AboutScreen';
 import TreasureHuntScreen from './screens/TreasureHuntScreen';
+import StamfordQuest from './components/Home/StamfordQuest';
 import { Screen } from './types';
 
 const App: React.FC = () => {
@@ -53,6 +54,7 @@ const App: React.FC = () => {
       {showBottomNav && (
         <BottomNav currentScreen={currentScreen} onNavigate={setCurrentScreen} />
       )}
+      <StamfordQuest currentScreen={currentScreen} />
     </div>
   );
 };

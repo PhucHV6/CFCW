@@ -20,6 +20,15 @@ export const CLUB_LOGOS = {
   REAL_MADRID: 'https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg',
   BAYERN_MUNICH: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg',
   PARIS_SG: 'https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg',
+  OPPONENT_LOGO: 'https://crests.football-data.org/57.svg',
+} as const;
+
+export const COLORS = {
+  CHELSEA_BLUE: '#034694',
+  CHELSEA_DARK: '#0A1A3F',
+  GOLD: '#DBA111',
+  SUCCESS: '#10B981',
+  AI_CYAN: '#00F0FF',
 } as const;
 
 export const IMAGES = {
@@ -45,6 +54,14 @@ export const IMAGES = {
   ABOUT_HERO_SOURCE: "https://static.independent.co.uk/2023/05/27/17/SEI157956830.jpg?quality=75&width=1368&crop=3%3A2%2Csmart&auto=webp",
   STADIUM_KM: "https://groundhopperguides.com/wp-content/uploads/2021/11/chelsea-fc-women-4-e1732897919265.jpeg",
   STADIUM_SB: "https://www.eocengineers.com/cdn-cgi/image/format=avif/wp-content/uploads/2022/09/STAMFORD_BRIDGE_LARGE_A.jpg",
+  // New Home Page Assets
+  HOME_HERO_CINEMATIC: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+  MANAGER_CINEMATIC: 'https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+  TROPHY_LIFT: 'https://images.unsplash.com/photo-1561595537-8f55979bc6a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+  CROWD_CINEMATIC: 'https://images.unsplash.com/photo-1504159506876-791895207d6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+  SOCIAL_1: 'https://images.unsplash.com/photo-1551966775-a4ddc8df052b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  SOCIAL_2: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  SOCIAL_3: 'https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
 };
 
 export const SQUAD_DATA = [
