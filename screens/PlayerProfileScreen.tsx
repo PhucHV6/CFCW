@@ -26,7 +26,7 @@ const PlayerProfileScreen: React.FC<PlayerProfileProps> = ({ playerId, onBack })
 
       <PageLayout noPaddingTop>
         {/* Hero Section */}
-        <div className="relative h-[520px] w-full overflow-hidden -mx-4 w-[calc(100%+2rem)]">
+        <div className="relative h-[520px] w-full overflow-hidden -mx-4 w-[calc(100%+2rem)] pt-[15px]">
           <img
             src={player.image}
             alt={player.name}
