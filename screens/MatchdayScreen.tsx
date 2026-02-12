@@ -33,7 +33,7 @@ const MatchdayScreen: React.FC = () => {
         </div>
       </Header>
 
-      <PageLayout className="space-y-5 pt-32">
+      <PageLayout className="space-y-[30px] pt-[124px]">
         {/* 1. Ticket CTAs */}
         <section className="space-y-2" aria-label="Get tickets">
           <h2 className="text-xs font-bold text-white uppercase tracking-wider px-1">Get tickets</h2>

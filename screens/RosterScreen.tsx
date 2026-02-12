@@ -37,9 +37,9 @@ const RosterScreen: React.FC<RosterScreenProps> = ({ onNavigate }) => {
                 </div>
             </Header>
 
-            <PageLayout className="pt-32">
+            <PageLayout className="pt-[124px]">
                 {activeTab === 'squad' ? (
-                    <div className="space-y-5">
+                    <div className="space-y-[30px]">
                         {/* Quick jump by position */}
                         <section aria-label="Quick jump by position">
                             <p className="text-[10px] font-bold text-white uppercase tracking-wider mb-2 px-1">Quick jump</p>
@@ -56,7 +56,7 @@ const RosterScreen: React.FC<RosterScreenProps> = ({ onNavigate }) => {
                             </div>
                         </section>
 
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-2 gap-[26px]">
                             {/* Featured Player (All or Forward) */}
                             {(positionFilter === 'All' || positionFilter === 'Forward') && (
                                 <div
@@ -75,8 +75,8 @@ const RosterScreen: React.FC<RosterScreenProps> = ({ onNavigate }) => {
 
                             {filteredSquad.filter(p => !p.isStar).map((player) => (
                                 <div key={player.id} onClick={() => onNavigate(Screen.PROFILE, player.id)} className="chelsea-card overflow-hidden cursor-pointer hover:border-chelsea-blue/50 transition-colors group min-h-[44px]">
-                                    <div className="h-36 relative overflow-hidden">
-                                        <img src={player.image} alt={player.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                                    <div className="h-48 relative overflow-hidden">
+                                        <img src={player.image} alt={player.name} className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" />
                                         <div className="absolute bottom-0 left-0 bg-chelsea-blue text-white text-sm font-bold px-2 py-1 rounded-tr-lg shadow-sm">
                                             {player.number}
                                         </div>
@@ -97,8 +97,8 @@ const RosterScreen: React.FC<RosterScreenProps> = ({ onNavigate }) => {
                         <p className="text-[10px] font-bold text-white uppercase tracking-wider px-1">Staff</p>
                         {STAFF_DATA.map((staff) => (
                             <div key={staff.id} className="flex items-center gap-4 chelsea-card p-4 min-h-[72px]">
-                                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-chelsea-border shrink-0 shadow-sm">
-                                    <img src={staff.image} alt={staff.name} className="w-full h-full object-cover" />
+                                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-chelsea-border shrink-0 shadow-sm bg-white">
+                                    <img src={staff.image} alt={staff.name} className="w-full h-full object-cover object-top" />
                                 </div>
                                 <div className="min-w-0">
                                     <h4 className="text-lg font-bold text-chelsea-text-dark">{staff.name}</h4>

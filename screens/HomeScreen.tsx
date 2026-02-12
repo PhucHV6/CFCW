@@ -14,7 +14,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
   return (
     <div className="flex flex-col flex-1 min-h-0 overflow-hidden bg-chelsea-blue">
       <Header />
-      <PageLayout className="space-y-6 pt-20">
+      <PageLayout className="space-y-[34px] pt-[90px]">
         {/* Hero Section - Chelsea Style */}
         <section className="relative aspect-video w-full overflow-hidden rounded-unified shadow-lg group cursor-pointer border border-chelsea-border">
           <img
@@ -75,7 +75,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
         </section>
 
         {/* Quick Links - Key Journeys */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-[26px]">
           <div className="chelsea-card p-4 flex flex-col justify-between h-32 group cursor-pointer hover:border-chelsea-blue/50 transition-colors">
             <div className="w-10 h-10 rounded-full bg-blue-500/10 text-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform">
               <span className="material-symbols-outlined">stadium</span>

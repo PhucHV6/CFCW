@@ -26,13 +26,13 @@ const PlayerProfileScreen: React.FC<PlayerProfileProps> = ({ playerId, onBack })
 
       <PageLayout noPaddingTop>
         {/* Hero Section */}
-        <div className="relative h-[480px] w-full overflow-hidden -mx-4 w-[calc(100%+2rem)]">
+        <div className="relative h-[520px] w-full overflow-hidden -mx-4 w-[calc(100%+2rem)]">
           <img
             src={player.image}
             alt={player.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-chelsea-blue/90 via-chelsea-blue/20 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-chelsea-blue/95 via-chelsea-blue/30 to-transparent"></div>
 
           <div className="absolute bottom-0 left-0 right-0 p-6">
             <div className="flex items-end justify-between mb-8">
@@ -68,7 +68,7 @@ const PlayerProfileScreen: React.FC<PlayerProfileProps> = ({ playerId, onBack })
           </div>
         </div>
 
-        <div className="mt-8 space-y-12">
+        <div className="mt-[42px] space-y-[58px]">
           {/* Highlights */}
           <section>
             <div className="flex items-center justify-between mb-4">
@@ -101,8 +101,8 @@ const PlayerProfileScreen: React.FC<PlayerProfileProps> = ({ playerId, onBack })
 
             <div className="flex items-center gap-4 mb-6 relative z-10">
               <div className="relative">
-                <div className="w-14 h-14 rounded-full border-2 border-white/20 overflow-hidden shadow-md">
-                  <img src={player.image} alt={player.name} className="w-full h-full object-cover" />
+                <div className="w-14 h-14 rounded-full border-2 border-white/20 overflow-hidden shadow-md bg-white">
+                  <img src={player.image} alt={player.name} className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-white rounded-full border-2 border-chelsea-blue flex items-center justify-center">
                   <span className="material-symbols-outlined text-[12px] text-chelsea-blue">bolt</span>
