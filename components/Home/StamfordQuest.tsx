@@ -47,6 +47,7 @@ const StamfordQuest: React.FC<{ currentScreen?: Screen }> = ({ currentScreen }) 
     const [cupPos, setCupPos] = useState({ top: '80%', left: '80%' });
     const [targetScreen, setTargetScreen] = useState<Screen>(Screen.HOME);
     const [radarHint, setRadarHint] = useState("SEARCHING...");
+    const [isHidden, setIsHidden] = useState(false);
 
     // Global Sync Simulation
     useEffect(() => {
@@ -136,6 +137,7 @@ const StamfordQuest: React.FC<{ currentScreen?: Screen }> = ({ currentScreen }) 
         setStartTime(0);
         setFinalTime("");
         setIsHalfTime(false);
+        setIsHidden(false);
         // Re-trigger for infinite demo loop
         setTimeout(() => setIsHalfTime(true), 1500);
     };
@@ -155,21 +157,30 @@ const StamfordQuest: React.FC<{ currentScreen?: Screen }> = ({ currentScreen }) 
     return (
         <div className="contents">
             {/* 1. LOBBY BANNER (Thumb Zone focus) */}
-            {isHalfTime && state === 'lobby' && (
+            {isHalfTime && state === 'lobby' && !isHidden && (
                 <div className="absolute bottom-24 left-1/2 -translate-x-1/2 w-[92%] z-[60] animate-fadeIn">
-                    <div className="bg-[#0A1A3F] border border-[#DBA111]/30 p-4 rounded-2xl shadow-2xl flex items-center justify-between">
+                    <div className="bg-[#0A1A3F] border border-[#DBA111]/30 p-4 rounded-2xl shadow-2xl flex items-center justify-between relative overflow-hidden">
+                        {/* Dismiss Button */}
+                        <button
+                            onClick={() => setIsHidden(true)}
+                            className="absolute top-2 right-2 p-1 hover:bg-white/10 rounded-full transition-colors group z-10"
+                            aria-label="Hide banner"
+                        >
+                            <Icons.X className="w-4 h-4 text-white/40 group-hover:text-white" />
+                        </button>
+
                         <div className="flex items-center space-x-3">
-                            <div className="w-10 h-10 bg-[#DBA111]/10 rounded-full flex items-center justify-center">
+                            <div className="w-10 h-10 bg-[#DBA111]/10 rounded-full flex items-center justify-center shrink-0">
                                 <Icons.Trophy className="w-5 h-5 text-[#DBA111]" />
                             </div>
-                            <div>
+                            <div className="mr-4">
                                 <p className="text-white font-black text-[11px] uppercase tracking-tighter">Half-Time Hunt</p>
                                 <p className="text-[#DBA111] text-[9px] font-bold uppercase">The Vault is Open</p>
                             </div>
                         </div>
                         <button
                             onClick={startHunt}
-                            className="bg-[#DBA111] text-[#0A1A3F] px-4 py-2.5 rounded-lg font-black text-[11px] uppercase active:scale-95 transition-transform"
+                            className="bg-[#DBA111] text-[#0A1A3F] px-4 py-2.5 rounded-lg font-black text-[11px] uppercase active:scale-95 transition-transform shrink-0"
                         >
                             Start Hunt
                         </button>

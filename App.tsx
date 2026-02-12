@@ -11,9 +11,9 @@ import { Screen } from './types';
 
 const App: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState<Screen>(Screen.HOME);
-  const [selectedPlayerId, setSelectedPlayerId] = useState<number | null>(null);
+  const [selectedPlayerId, setSelectedPlayerId] = useState<number | string | null>(null);
 
-  const handleNavigate = (screen: Screen, playerId?: number) => {
+  const handleNavigate = (screen: Screen, playerId?: number | string) => {
     if (screen === Screen.PROFILE && playerId) {
       setSelectedPlayerId(playerId);
     }

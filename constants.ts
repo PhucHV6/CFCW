@@ -1,3 +1,5 @@
+import { Player } from './types';
+
 /** Official Chelsea FC Women hub / chelseafc.com links (for "Learn more" etc.) */
 export const CFCW_LINKS = {
   MATCHDAY_GUIDE: 'https://www.chelseafc.com/en/chelsea-womens-ticket-guide',
@@ -64,18 +66,137 @@ export const IMAGES = {
   SOCIAL_3: 'https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
 };
 
-export const SQUAD_DATA = [
-  { id: 1, name: "Sam Kerr", number: 20, position: "Forward", image: IMAGES.SAM_KERR, isStar: true, statLine: "12 goals · WSL 24/25" },
-  { id: 2, name: "Lauren James", number: 10, position: "Forward", image: IMAGES.PLAYER_1, statLine: "8 goals · 15 apps" },
-  { id: 3, name: "Guro Reiten", number: 11, position: "Midfielder", image: IMAGES.PLAYER_2, statLine: "6 assists · Norway" },
-  { id: 4, name: "Millie Bright", number: 4, position: "Defender", image: IMAGES.PLAYER_3, statLine: "Captain · England" },
-  { id: 5, name: "Lucy Bronze", number: 22, position: "Defender", image: IMAGES.LUCY_BRONZE, statLine: "England · 124 caps" },
-  { id: 6, name: "Erin Cuthbert", number: 8, position: "Midfielder", image: IMAGES.ERIN_CUTHBERT, statLine: "Scotland · Vice Captain" },
+export const SQUAD_DATA: Player[] = [
+  {
+    id: 'p20',
+    name: 'Sam Kerr',
+    number: 20,
+    position: 'Forward',
+    country: 'AUS',
+    image: IMAGES.SAM_KERR,
+    bio: "One of the world's best strikers. Kerr's movement, heading ability, and finishing are elite. The face of the franchise.",
+    stats: { appearances: 110, goals: 90, assists: 25, pace: 87, shooting: 93, passing: 75, dribbling: 84, defending: 45, physical: 80 },
+    squadType: 'Senior',
+    isStar: true,
+    statLine: "12 goals · WSL 24/25"
+  },
+  {
+    id: 'p10',
+    name: 'Lauren James',
+    number: 10,
+    position: 'Forward',
+    country: 'ENG',
+    image: IMAGES.PLAYER_1,
+    bio: "A generational talent. James possesses world-class dribbling, strength, and finishing. She can create a goal out of absolutely nothing.",
+    stats: { appearances: 50, goals: 25, assists: 15, pace: 88, shooting: 86, passing: 82, dribbling: 94, defending: 40, physical: 85 },
+    squadType: 'Senior',
+    statLine: "8 goals · 15 apps"
+  },
+  {
+    id: 'p11',
+    name: 'Guro Reiten',
+    number: 11,
+    position: 'Midfielder',
+    country: 'NOR',
+    image: IMAGES.PLAYER_2,
+    bio: "The Assist Queen. Reiten's left foot is a wand, capable of unlocking any defence with precise crosses and through balls. Also deadly from set-pieces.",
+    stats: { appearances: 120, goals: 35, assists: 55, pace: 82, shooting: 80, passing: 92, dribbling: 86, defending: 55, physical: 65 },
+    squadType: 'Senior',
+    statLine: "6 assists · Norway"
+  },
+  {
+    id: 'p3',
+    name: 'Millie Bright',
+    number: 4,
+    position: 'Defender',
+    country: 'ENG',
+    image: IMAGES.PLAYER_3,
+    bio: "The rock at the heart of the defence. Millie Bright is renowned for her aerial dominance, crunching tackles, and leadership on the pitch.",
+    stats: { appearances: 150, goals: 15, assists: 8, pace: 72, shooting: 65, passing: 75, dribbling: 60, defending: 91, physical: 94 },
+    squadType: 'Senior',
+    statLine: "Captain · England"
+  },
+  {
+    id: 'p22',
+    name: 'Lucy Bronze',
+    number: 22,
+    position: 'Defender',
+    country: 'ENG',
+    image: IMAGES.LUCY_BRONZE,
+    bio: "A living legend of the game. Lucy Bronze joined Chelsea in the summer of 2024, bringing a wealth of experience, winner's mentality, and world-class ability to the backline.",
+    stats: { appearances: 5, goals: 1, assists: 2, pace: 80, shooting: 70, passing: 82, dribbling: 78, defending: 88, physical: 85 },
+    squadType: 'Senior',
+    statLine: "England · 124 caps"
+  },
+  {
+    id: 'p8',
+    name: 'Erin Cuthbert',
+    number: 8,
+    position: 'Midfielder',
+    country: 'SCO',
+    image: IMAGES.ERIN_CUTHBERT,
+    bio: "The engine room. Cuthbert's tenacity and long-range shooting ability have made her a fan favourite. She never stops running.",
+    stats: { appearances: 160, goals: 30, assists: 25, pace: 78, shooting: 84, passing: 81, dribbling: 80, defending: 75, physical: 85 },
+    squadType: 'Senior',
+    statLine: "Scotland · Vice Captain"
+  },
+  {
+    id: 'p24',
+    name: 'Hannah Hampton',
+    number: 24,
+    position: 'Goalkeeper',
+    country: 'ENG',
+    image: 'https://img.chelseafc.com/image/upload/f_auto,h_860,dpr_2.0,q_50/editorial/people/ladies/2025-26/Hannah_Hampton_profile_2025-26_avatar-removebg.png',
+    bio: "One of England's brightest goalkeeping talents, Hampton arrived with a reputation for incredible distribution and shot-stopping ability.",
+    stats: { appearances: 10, goals: 0, assists: 1, pace: 50, shooting: 25, passing: 84, dribbling: 45, defending: 80, physical: 72 },
+    squadType: 'Senior',
+    statLine: "England · GK"
+  },
+  {
+    id: 'u21_2',
+    name: 'Lexi Potter',
+    number: 42,
+    position: 'Midfielder',
+    country: 'ENG',
+    image: 'https://img.chelseafc.com/image/upload/f_auto,h_860,dpr_2.0,q_50/editorial/people/ladies/2025-26/Lexi_Potter_profile_2025-26_avatar-removebg.png',
+    bio: "Technically gifted midfielder, the youngest female player to sign a professional contract with Chelsea.",
+    stats: { appearances: 0, goals: 0, assists: 0, pace: 70, shooting: 60, passing: 75, dribbling: 72, defending: 50, physical: 55 },
+    squadType: 'U21',
+    statLine: "Academy Star"
+  },
+  {
+    id: 'l1',
+    name: 'Jorja Fox',
+    number: 38,
+    position: 'Defender',
+    country: 'ENG',
+    image: 'https://img.chelseafc.com/image/upload/f_auto,h_860,dpr_2.0,q_50/editorial/people/ladies/2025-26/Jorja_Fox_profile_2025-26_avatar-removebg.png',
+    bio: "Talented full-back currently gaining experience on loan at Crystal Palace.",
+    stats: { appearances: 5, goals: 0, assists: 1, pace: 75, shooting: 40, passing: 65, dribbling: 68, defending: 70, physical: 65 },
+    squadType: 'Loan',
+    statLine: "On Loan"
+  }
 ];
 
-export const STAFF_DATA = [
-  { id: 101, name: "Sonia Bompastor", role: "Head Coach", image: IMAGES.SONIA_BOMPASTOR },
-  { id: 102, name: "Camille Abily", role: "Assistant Coach", image: IMAGES.CAMILLE_ABILY },
+export const STAFF_DATA: Player[] = [
+  {
+    id: 's1',
+    name: 'Sonia Bompastor',
+    position: 'Head Coach',
+    country: 'FRA',
+    image: IMAGES.SONIA_BOMPASTOR,
+    bio: "Appointed in 2024, Bompastor is a Champions League winner as both player and manager.",
+    squadType: 'Staff'
+  },
+  {
+    id: 's2',
+    name: 'Camille Abily',
+    position: 'Assistant Coach',
+    country: 'FRA',
+    image: IMAGES.CAMILLE_ABILY,
+    bio: "French football legend serving as assistant coach.",
+    squadType: 'Staff'
+  }
 ];
 
 export const STORIES_DATA = [
@@ -140,3 +261,10 @@ export const MOCK_LEADERBOARD: LeaderboardEntry[] = [
   { rank: 6, displayName: 'WSL_Supporter', score: 0, totalTimeSec: 0, completed: false },
   { rank: 7, displayName: 'Bridge_Believer', score: 0, totalTimeSec: 0, completed: false },
 ];
+
+export const SPOTLIGHT_PLAYER = {
+  id: 'p10',
+  name: 'Lauren James',
+  tagline: 'SPOTLIGHT',
+  videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+};
