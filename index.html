@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <title>Chelsea FC Women’s Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -14,7 +18,14 @@
                 extend: {
                     colors: {
                         "chelsea-blue": "#034694",
-                        "chelsea-dark": "#0A0A0A",
+                        "chelsea-navy": "#001E3C",
+                        "chelsea-gold": "#DBA111",
+                        "chelsea-bg-light": "#F5F7FA",
+                        "chelsea-bg-white": "#FFFFFF",
+                        "chelsea-text-dark": "#001E3C",
+                        "chelsea-text-gray": "#5A6C7D",
+                        "chelsea-border": "#E5E7EB",
+                        "chelsea-dark": "#0A1A3F",
                         "surface-dark": "#1C1C1E",
                         "primary": "#034694",
                     },
@@ -30,44 +41,170 @@
         }
     </script>
     <style>
-        html, body {
+        /* === CHELSEA BRAND CSS === */
+
+        html,
+        body {
             height: 100%;
             margin: 0;
         }
+
         body {
-            background-color: #0A0A0A;
+            background: #034694;
             font-family: 'Lexend', sans-serif;
             -webkit-tap-highlight-color: transparent;
             display: flex;
             justify-content: center;
             align-items: flex-start;
         }
+
         @media (min-width: 429px) {
             body {
-                background: linear-gradient(180deg, #0f0f12 0%, #0A0A0A 100%);
+                background: linear-gradient(180deg, #FFFFFF 0%, #F5F7FA 100%);
             }
         }
+
         #root {
             width: 100%;
             max-width: 428px;
             min-height: 100%;
         }
+
+        /* Scrollbar */
         .hide-scrollbar::-webkit-scrollbar {
             display: none;
         }
+
         .hide-scrollbar {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        /* Material Icons */
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
             user-select: none;
         }
+
         .material-symbols-outlined.fill-1 {
             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+
+        /* === CHELSEA TYPOGRAPHY === */
+        .chelsea-headline {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: #001E3C;
+        }
+
+        .chelsea-subheading {
+            font-weight: 600;
+            color: #5A6C7D;
+        }
+
+        .chelsea-body {
+            font-weight: 400;
+            color: #5A6C7D;
+        }
+
+        /* === CHELSEA BUTTONS === */
+        .chelsea-btn-primary {
+            background-color: #034694;
+            color: #FFFFFF;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .chelsea-btn-primary:hover {
+            background-color: #02356d;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(3, 70, 148, 0.3);
+        }
+
+        .chelsea-btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .chelsea-btn-secondary {
+            background-color: #FFFFFF;
+            color: #034694;
+            border: 2px solid #034694;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .chelsea-btn-secondary:hover {
+            background-color: #034694;
+            color: #FFFFFF;
+        }
+
+        /* === CHELSEA HERO SECTION === */
+        .chelsea-hero-overlay {
+            background: linear-gradient(180deg, rgba(3, 70, 148, 0.4) 0%, rgba(3, 70, 148, 0.8) 100%);
+        }
+
+        /* === CHELSEA CARDS === */
+        .chelsea-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .chelsea-card:hover {
+            border-color: #034694;
+            box-shadow: 0 4px 12px rgba(3, 70, 148, 0.15);
+        }
+
+        /* === CHELSEA NAVIGATION === */
+        .chelsea-nav-active {
+            color: #034694;
+            position: relative;
+        }
+
+        .chelsea-nav-active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: #034694;
+            box-shadow: 0 0 8px rgba(3, 70, 148, 0.6);
+        }
+
+        @keyframes chelsea-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 8px rgba(3, 70, 148, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 16px rgba(3, 70, 148, 0.8);
+            }
+        }
+
+        .chelsea-glow {
+            animation: chelsea-glow 2s ease-in-out infinite;
+        }
+
+        /* === CHELSEA GRADIENTS === */
+        .chelsea-gradient-navy {
+            background: linear-gradient(180deg, #0A1A3F 0%, #020E2F 100%);
+        }
+
+        .chelsea-gradient-blue {
+            background: linear-gradient(135deg, #034694 0%, #02356d 100%);
+        }
     </style>
-<script type="importmap">
+    <script type="importmap">
 {
   "imports": {
     "react/": "https://esm.sh/react@^19.2.4/",
@@ -77,8 +214,10 @@
 }
 </script>
 </head>
-<body class="bg-chelsea-dark text-white h-screen overflow-hidden">
+
+<body class="bg-chelsea-blue text-white h-screen overflow-hidden">
     <div id="root" class="h-full"></div>
     <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>

@@ -9,6 +9,19 @@ export const CFCW_LINKS = {
 export const CHELSEA_LOGO =
   'https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg';
 
+/** Football club logos for opponents */
+export const CLUB_LOGOS = {
+  ARSENAL: 'https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg',
+  MANCHESTER_CITY: 'https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg',
+  MANCHESTER_UNITED: 'https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg',
+  LIVERPOOL: 'https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg',
+  TOTTENHAM: 'https://upload.wikimedia.org/wikipedia/en/b/b4/Tottenham_Hotspur.svg',
+  BARCELONA: 'https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg',
+  REAL_MADRID: 'https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg',
+  BAYERN_MUNICH: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg',
+  PARIS_SG: 'https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg',
+} as const;
+
 export const IMAGES = {
   HOME_HERO: "https://lh3.googleusercontent.com/aida-public/AB6AXuCS25midCfTaigMUSABOBUpQCA58PCuARCWcs7nf3e8Vdy6p4y2cIOWqbv6S-cTOUoX1uV9QuAdpqJMCb4ZZKs-C8qE9nyNVyek6bXHDgw-0ZGD90BXuuSfk7jVpWu0b75kdK90IChg4GEOT6H-MbyyYdoapqyzubMM8EyHIH1tg9-z0hTK1Ve-rmmRslMzkfRSYkW1NmxgYw5bfCIQRYRTms1JEE2eE50O_BBy29qO_AePkFwb5gfTri5pe-VDJuAfw-0TP9UNjhw",
   STADIUM_MAP: "https://lh3.googleusercontent.com/aida-public/AB6AXuALXIuDbnsX0vbbjb_eZFbw1EsyA1knLKizHq3rPNgUWWZ96DTKGW2M0ahZm4QHcL67X7ZRrA6saxH0nXuo7CHSBet4qJOP-ktIjJyCc5cgMEQ7HJ7RqDKC8pCcjNiWcNU9WMF1o6qIClbxTmJS2t9ZhjRGAj1uVJMyNo7xl9Vxk1jIt27VvvhDyaNfxywAzQOd-tPLeTwMQQEWPrOoGiBx0xl-BV6OnYgdiJjiiuFJE6PuolEBmhTKP2Rk4YuiufWggShVHdQj8rc",

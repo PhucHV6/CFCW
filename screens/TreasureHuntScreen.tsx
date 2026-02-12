@@ -32,17 +32,17 @@ function CountdownLabel() {
   const { days, hours, minutes, seconds, isLive } = useCountdown(TREASURE_HUNT_BREAK_TIME_UTC);
   if (isLive) {
     return (
-      <div className="rounded-xl bg-emerald-500/20 border border-emerald-500/40 px-4 py-3 text-center" role="status" aria-live="polite">
-        <p className="text-emerald-300 font-bold text-sm uppercase tracking-wider">Game on!</p>
-        <p className="text-white text-xs mt-0.5">Tap Start to find the treasure.</p>
+      <div className="rounded-xl bg-emerald-50 border border-emerald-100 px-4 py-3 text-center" role="status" aria-live="polite">
+        <p className="text-emerald-600 font-bold text-sm uppercase tracking-wider">Game on!</p>
+        <p className="text-chelsea-text-gray text-xs mt-0.5">Tap Start to find the treasure.</p>
       </div>
     );
   }
   const pad = (n: number) => String(n).padStart(2, '0');
   return (
-    <div className="rounded-xl bg-chelsea-blue/20 border border-chelsea-blue/40 px-4 py-3 text-center" role="timer" aria-live="polite" aria-label={`Game starts in ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`}>
-      <p className="text-[10px] font-bold text-chelsea-blue uppercase tracking-wider mb-1">Starts in</p>
-      <p className="font-mono text-xl font-bold text-white tabular-nums">
+    <div className="rounded-xl bg-blue-50 border border-blue-100 px-4 py-3 text-center" role="timer" aria-live="polite" aria-label={`Game starts in ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`}>
+      <p className="text-[10px] font-bold text-chelsea-text-gray uppercase tracking-wider mb-1">Starts in</p>
+      <p className="font-mono text-xl font-bold text-chelsea-blue tabular-nums">
         {days > 0 ? `${days}d ` : ''}{pad(hours)}:{pad(minutes)}:{pad(seconds)}
       </p>
     </div>
@@ -63,8 +63,8 @@ function TreasureRadar({ angleDeg }: { angleDeg: number }) {
   const blipY = cy - r * Math.cos(rad);
   return (
     <div className="flex flex-col items-center gap-2" role="img" aria-label="Treasure radar: explore in the direction of the glowing dot">
-      <p className="text-[10px] font-bold text-chelsea-blue uppercase tracking-wider">Treasure radar</p>
-      <div className="relative w-[140px] h-[140px] rounded-full border-2 border-white/20 bg-surface-dark/80 flex items-center justify-center overflow-hidden">
+      <p className="text-[10px] font-bold text-chelsea-text-gray uppercase tracking-wider">Treasure radar</p>
+      <div className="relative w-[140px] h-[140px] rounded-full border border-chelsea-border bg-white flex items-center justify-center overflow-hidden shadow-inner">
         {/* Sweep line: rotating line from center */}
         <div
           className="absolute w-0.5 h-1/2 top-1/2 left-1/2 origin-top -translate-x-1/2 -translate-y-full bg-chelsea-blue/40 animate-spin"
@@ -83,7 +83,7 @@ function TreasureRadar({ angleDeg }: { angleDeg: number }) {
           title="Treasure direction"
         />
       </div>
-      <p className="text-xs text-gray-400 text-center max-w-[200px]">Explore chelseafc.com in this direction</p>
+      <p className="text-[10px] font-bold text-chelsea-text-gray text-center max-w-[200px] uppercase tracking-wide">Explore chelseafc.com</p>
     </div>
   );
 }
@@ -124,13 +124,13 @@ const TreasureHuntScreen: React.FC<TreasureHuntScreenProps> = ({ onBack }) => {
 
   if (showLeaderboardStandalone) {
     return (
-      <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+      <div className="flex flex-col flex-1 min-h-0 overflow-hidden bg-chelsea-blue">
         <Header title="Leaderboard" showBack onBack={handleHideLeaderboard} />
         <PageLayout className="space-y-4">
           <LeaderboardList entries={MOCK_LEADERBOARD} />
           <button
             onClick={handleHideLeaderboard}
-            className={`w-full py-4 rounded-xl bg-white/10 border border-white/10 text-white font-bold ${minTap}`}
+            className={`w-full py-4 rounded-xl bg-white border border-chelsea-border text-chelsea-text-dark font-bold shadow-sm ${minTap}`}
           >
             Back
           </button>
@@ -142,20 +142,20 @@ const TreasureHuntScreen: React.FC<TreasureHuntScreenProps> = ({ onBack }) => {
   switch (phase) {
     case 'intro':
       return (
-        <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+        <div className="flex flex-col flex-1 min-h-0 overflow-hidden bg-chelsea-blue">
           <Header title="Matchday Treasure Hunt" showBack onBack={onBack} />
           <PageLayout className="space-y-6">
             <CountdownLabel />
-            <div className="bg-gradient-to-br from-amber-500/20 to-chelsea-blue/20 rounded-2xl p-5 border border-amber-500/30">
+            <div className="bg-white rounded-2xl p-5 border border-amber-100 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
-                <span className="material-symbols-outlined text-3xl text-amber-400">military_tech</span>
+                <span className="material-symbols-outlined text-3xl text-amber-500">military_tech</span>
                 <div>
-                  <h2 className="text-xl font-bold text-white">Find the treasure</h2>
-                  <p className="text-[10px] font-bold text-amber-400/90 uppercase tracking-wider mt-0.5">Matchday game</p>
+                  <h2 className="text-xl font-bold text-chelsea-text-dark">Find the treasure</h2>
+                  <p className="text-[10px] font-bold text-amber-600 uppercase tracking-wider mt-0.5">Matchday game</p>
                 </div>
               </div>
-              <p className="text-sm text-gray-300 mb-4">{TREASURE_HUNT.BREAK_TIME_LABEL}</p>
-              <ul className="space-y-2 text-sm text-gray-300 list-disc list-inside">
+              <p className="text-sm text-chelsea-text-gray mb-4 font-medium">{TREASURE_HUNT.BREAK_TIME_LABEL}</p>
+              <ul className="space-y-2 text-sm text-chelsea-text-gray list-disc list-inside">
                 <li>Treasure is hidden on a page across chelseafc.com</li>
                 <li>When you find it, answer 3 questions to unlock the reward</li>
                 <li>One wrong answer = eliminated (try next round)</li>
@@ -166,7 +166,7 @@ const TreasureHuntScreen: React.FC<TreasureHuntScreenProps> = ({ onBack }) => {
             <button
               type="button"
               onClick={handleStart}
-              className={`w-full py-4 rounded-xl bg-chelsea-blue text-white font-bold text-lg ${minTap} active:scale-[0.98] shadow-lg focus:outline-none focus:ring-2 focus:ring-white/30`}
+              className={`w-full py-4 rounded-xl chelsea-btn-primary text-white font-bold text-lg ${minTap} active:scale-[0.98] shadow-lg focus:outline-none`}
               aria-label="Start the game"
             >
               Start game
@@ -174,7 +174,7 @@ const TreasureHuntScreen: React.FC<TreasureHuntScreenProps> = ({ onBack }) => {
             <button
               type="button"
               onClick={handleShowLeaderboard}
-              className={`w-full py-4 rounded-xl bg-white/10 border border-white/10 text-white font-bold ${minTap}`}
+              className={`w-full py-4 rounded-xl bg-white border border-chelsea-border text-chelsea-text-dark font-bold shadow-sm ${minTap}`}
             >
               View Leaderboard
             </button>
@@ -184,15 +184,15 @@ const TreasureHuntScreen: React.FC<TreasureHuntScreenProps> = ({ onBack }) => {
 
     case 'play':
       return (
-        <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+        <div className="flex flex-col flex-1 min-h-0 overflow-hidden bg-chelsea-blue">
           <Header title="Matchday Treasure Hunt" showBack onBack={onBack} />
           <PageLayout className="space-y-6">
             <div className="flex flex-col items-center py-2">
               <TreasureRadar angleDeg={radarAngle} />
             </div>
-            <div className="bg-surface-dark rounded-2xl p-5 border border-white/10">
+            <div className="chelsea-card p-5">
               <span className="text-[10px] font-bold text-chelsea-blue uppercase tracking-wider">Clue</span>
-              <p className="text-white font-medium mt-2">{TREASURE_HUNT.CLUE}</p>
+              <p className="text-chelsea-text-dark font-bold mt-2">{TREASURE_HUNT.CLUE}</p>
             </div>
             <p className="text-sm text-gray-400 text-center">
               On matchday we detect when you’re on the right page on chelseafc.com. For this demo, tap below to continue the journey.
@@ -201,7 +201,7 @@ const TreasureHuntScreen: React.FC<TreasureHuntScreenProps> = ({ onBack }) => {
               href={CFCW_LINKS.ABOUT}
               target="_blank"
               rel="noopener noreferrer"
-              className={`w-full py-4 rounded-xl bg-white/10 border border-white/10 text-white font-bold flex items-center justify-center gap-2 ${minTap} hover:bg-white/15 transition-colors`}
+              className={`w-full py-4 rounded-xl bg-white border border-chelsea-border text-chelsea-text-dark font-bold flex items-center justify-center gap-2 ${minTap} hover:bg-gray-50 transition-colors shadow-sm`}
             >
               <span className="material-symbols-outlined">open_in_new</span>
               Open chelseafc.com
@@ -209,7 +209,7 @@ const TreasureHuntScreen: React.FC<TreasureHuntScreenProps> = ({ onBack }) => {
             <button
               type="button"
               onClick={handleFound}
-              className={`w-full py-4 rounded-xl bg-amber-500/25 border-2 border-amber-400/50 text-amber-100 font-bold ${minTap} hover:bg-amber-500/30 transition-colors active:scale-[0.98]`}
+              className={`w-full py-4 rounded-xl bg-amber-50 border-2 border-amber-200 text-amber-700 font-bold ${minTap} hover:bg-amber-100 transition-colors active:scale-[0.98] shadow-sm`}
               aria-label="I found the treasure"
             >
               I found the treasure — continue
@@ -220,17 +220,17 @@ const TreasureHuntScreen: React.FC<TreasureHuntScreenProps> = ({ onBack }) => {
 
     case 'found':
       return (
-        <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+        <div className="flex flex-col flex-1 min-h-0 overflow-hidden bg-chelsea-blue">
           <Header title="Matchday Treasure Hunt" showBack onBack={onBack} />
           <PageLayout className="space-y-6 flex flex-col items-center text-center">
-            <div className="w-20 h-20 rounded-full bg-amber-500/20 border-2 border-amber-400 flex items-center justify-center">
-              <span className="material-symbols-outlined text-4xl text-amber-400 fill-1">celebration</span>
+            <div className="w-20 h-20 rounded-full bg-amber-50 border-2 border-amber-400 flex items-center justify-center shadow-lg shadow-amber-200/50">
+              <span className="material-symbols-outlined text-4xl text-amber-500 fill-1">celebration</span>
             </div>
-            <h2 className="text-2xl font-bold text-white">You found the treasure!</h2>
-            <p className="text-gray-400">Answer 3 questions correctly to unlock your reward. One wrong answer ends your attempt.</p>
+            <h2 className="text-2xl font-black text-white italic uppercase">You found it!</h2>
+            <p className="text-chelsea-text-gray font-medium">Answer 3 questions correctly to unlock your reward. One wrong answer ends your attempt.</p>
             <button
               onClick={handleUnlockQuiz}
-              className={`w-full py-4 rounded-xl bg-chelsea-blue text-white font-bold text-lg ${minTap} mt-4`}
+              className={`w-full py-4 rounded-xl chelsea-btn-primary text-white font-bold text-lg ${minTap} mt-4 shadow-lg`}
             >
               Unlock with 3 questions
             </button>
@@ -252,18 +252,18 @@ const TreasureHuntScreen: React.FC<TreasureHuntScreenProps> = ({ onBack }) => {
 
     case 'eliminated':
       return (
-        <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+        <div className="flex flex-col flex-1 min-h-0 overflow-hidden bg-chelsea-blue">
           <Header title="Matchday Treasure Hunt" showBack onBack={onBack} />
           <PageLayout className="space-y-6 flex flex-col items-center text-center">
-            <div className="w-20 h-20 rounded-full bg-red-500/20 border-2 border-red-400 flex items-center justify-center">
-              <span className="material-symbols-outlined text-4xl text-red-400">close</span>
+            <div className="w-20 h-20 rounded-full bg-red-50 border-2 border-red-400 flex items-center justify-center shadow-lg shadow-red-200/50">
+              <span className="material-symbols-outlined text-4xl text-red-500">close</span>
             </div>
-            <h2 className="text-xl font-bold text-white">Eliminated</h2>
-            <p className="text-gray-400">One wrong answer ends this attempt. Try again in the next round!</p>
-            <button type="button" onClick={handleShowLeaderboard} className={`w-full py-4 rounded-xl bg-white/10 border border-white/10 text-white font-bold ${minTap}`}>
+            <h2 className="text-xl font-black text-white italic uppercase">Eliminated</h2>
+            <p className="text-chelsea-text-gray font-medium">One wrong answer ends this attempt. Try again in the next round!</p>
+            <button type="button" onClick={handleShowLeaderboard} className={`w-full py-4 rounded-xl bg-white border border-chelsea-border text-chelsea-text-dark font-bold shadow-sm ${minTap}`}>
               View Leaderboard
             </button>
-            <button type="button" onClick={() => setPhase('intro')} className={`w-full py-4 rounded-xl bg-chelsea-blue text-white font-bold ${minTap}`}>
+            <button type="button" onClick={() => setPhase('intro')} className={`w-full py-4 rounded-xl chelsea-btn-primary text-white font-bold ${minTap} shadow-lg`}>
               Back to start
             </button>
           </PageLayout>
@@ -272,18 +272,18 @@ const TreasureHuntScreen: React.FC<TreasureHuntScreenProps> = ({ onBack }) => {
 
     case 'reward_unlocked':
       return (
-        <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+        <div className="flex flex-col flex-1 min-h-0 overflow-hidden bg-chelsea-blue">
           <Header title="Matchday Treasure Hunt" showBack onBack={onBack} />
           <PageLayout className="space-y-6 flex flex-col items-center text-center">
-            <div className="w-20 h-20 rounded-full bg-emerald-500/20 border-2 border-emerald-400 flex items-center justify-center">
-              <span className="material-symbols-outlined text-4xl text-emerald-400 fill-1">workspace_premium</span>
+            <div className="w-20 h-20 rounded-full bg-emerald-50 border-2 border-emerald-400 flex items-center justify-center shadow-lg shadow-emerald-200/50">
+              <span className="material-symbols-outlined text-4xl text-emerald-500 fill-1">workspace_premium</span>
             </div>
-            <h2 className="text-2xl font-bold text-white">Reward unlocked!</h2>
-            <p className="text-gray-400">{TREASURE_HUNT.REWARD_LABEL}</p>
-            <button type="button" onClick={handleClaim} className={`w-full py-4 rounded-xl bg-chelsea-blue text-white font-bold text-lg ${minTap} mt-4`}>
+            <h2 className="text-2xl font-black text-white italic uppercase">Reward unlocked!</h2>
+            <p className="text-chelsea-text-gray font-medium">{TREASURE_HUNT.REWARD_LABEL}</p>
+            <button type="button" onClick={handleClaim} className={`w-full py-4 rounded-xl chelsea-btn-primary text-white font-bold text-lg ${minTap} mt-4 shadow-lg`}>
               Claim reward
             </button>
-            <button type="button" onClick={handleShowLeaderboard} className={`w-full py-4 rounded-xl bg-white/10 border border-white/10 text-white font-bold ${minTap}`}>
+            <button type="button" onClick={handleShowLeaderboard} className={`w-full py-4 rounded-xl bg-white border border-chelsea-border text-chelsea-text-dark font-bold shadow-sm ${minTap}`}>
               View Leaderboard
             </button>
           </PageLayout>
@@ -292,18 +292,18 @@ const TreasureHuntScreen: React.FC<TreasureHuntScreenProps> = ({ onBack }) => {
 
     case 'claim':
       return (
-        <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+        <div className="flex flex-col flex-1 min-h-0 overflow-hidden bg-chelsea-blue">
           <Header title="Claim reward" showBack onBack={onBack} />
           <PageLayout className="space-y-6">
-            <div className="bg-surface-dark rounded-2xl p-6 border border-white/10 text-center">
-              <p className="text-white font-medium mb-6">
+            <div className="chelsea-card p-6 text-center">
+              <p className="text-chelsea-text-dark font-bold mb-6">
                 Connect with your Chelsea account to claim this award.
               </p>
               <div className="flex flex-col gap-3">
-                <button className={`w-full py-4 rounded-xl bg-chelsea-blue text-white font-bold ${minTap}`}>
+                <button className={`w-full py-4 rounded-xl chelsea-btn-primary text-white font-bold shadow-lg ${minTap}`}>
                   Login
                 </button>
-                <button className={`w-full py-4 rounded-xl bg-white/10 border border-white/20 text-white font-bold ${minTap}`}>
+                <button className={`w-full py-4 rounded-xl bg-white border border-chelsea-border text-chelsea-text-dark font-bold shadow-sm ${minTap}`}>
                   Register
                 </button>
               </div>
@@ -334,16 +334,16 @@ function QuestionScreen({
   const minTap = 'min-h-[48px]';
 
   return (
-    <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+    <div className="flex flex-col flex-1 min-h-0 overflow-hidden bg-chelsea-blue">
       <Header title="Unlock treasure" showBack onBack={onBack} />
       <PageLayout className="space-y-6">
         <div className="flex justify-between items-center">
           <span className="text-xs font-bold text-chelsea-blue uppercase tracking-wider">
             Question {index + 1} of {total}
           </span>
-          <span className="text-xs text-gray-500 capitalize">{question.difficulty}</span>
+          <span className="text-xs text-chelsea-text-gray font-bold uppercase">{question.difficulty}</span>
         </div>
-        <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+        <div className="h-1.5 bg-blue-100 rounded-full overflow-hidden">
           <div className="h-full bg-chelsea-blue rounded-full transition-all" style={{ width: `${((index + 1) / total) * 100}%` }} />
         </div>
         <h2 className="text-lg font-bold text-white leading-snug">{question.question}</h2>
@@ -352,7 +352,7 @@ function QuestionScreen({
             <button
               key={opt.id}
               onClick={() => onAnswer(opt.correct)}
-              className={`w-full py-4 px-4 rounded-xl bg-surface-dark border border-white/10 text-left text-white font-medium hover:border-chelsea-blue/50 active:scale-[0.98] transition-all ${minTap}`}
+              className={`w-full py-4 px-4 rounded-xl bg-white border border-chelsea-border text-left text-chelsea-text-dark font-bold hover:border-chelsea-blue/50 active:scale-[0.98] transition-all shadow-sm ${minTap}`}
             >
               {opt.label}
             </button>
@@ -366,17 +366,17 @@ function QuestionScreen({
 function LeaderboardList({ entries }: { entries: LeaderboardEntry[] }) {
   return (
     <div className="space-y-2">
-      <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider sticky top-0 bg-chelsea-dark py-2 z-10">
+      <h3 className="text-xs font-bold text-chelsea-text-gray uppercase tracking-wider sticky top-0 bg-chelsea-blue py-2 z-10 px-1">
         Live leaderboard
       </h3>
       {entries.map((e) => (
         <div
           key={e.rank}
-          className="flex items-center gap-4 p-3 rounded-xl bg-surface-dark border border-white/5"
+          className="flex items-center gap-4 p-4 rounded-xl bg-white border border-chelsea-border shadow-sm"
         >
-          <span className="w-8 text-center font-black text-white/80">#{e.rank}</span>
-          <span className="flex-1 font-medium text-white truncate">{e.displayName}</span>
-          <span className="text-sm text-gray-400">
+          <span className="w-8 text-center font-black text-chelsea-blue italic text-lg">#{e.rank}</span>
+          <span className="flex-1 font-bold text-chelsea-text-dark truncate">{e.displayName}</span>
+          <span className="text-xs font-bold text-chelsea-text-gray">
             {e.completed ? `${e.score} pts · ${e.totalTimeSec}s` : 'Eliminated'}
           </span>
         </div>
