@@ -1,3 +1,14 @@
+/** Official Chelsea FC Women hub / chelseafc.com links (for "Learn more" etc.) */
+export const CFCW_LINKS = {
+  MATCHDAY_GUIDE: 'https://www.chelseafc.com/en/chelsea-womens-ticket-guide',
+  TEAM_PROFILES: 'https://www.chelseafc.com/en/teams/chelsea-women',
+  ABOUT: 'https://www.chelseafc.com/en/about-chelsea-fc-women',
+} as const;
+
+/** Chelsea FC crest / logo (official-style asset for Women's hub branding) */
+export const CHELSEA_LOGO =
+  'https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg';
+
 export const IMAGES = {
   HOME_HERO: "https://lh3.googleusercontent.com/aida-public/AB6AXuCS25midCfTaigMUSABOBUpQCA58PCuARCWcs7nf3e8Vdy6p4y2cIOWqbv6S-cTOUoX1uV9QuAdpqJMCb4ZZKs-C8qE9nyNVyek6bXHDgw-0ZGD90BXuuSfk7jVpWu0b75kdK90IChg4GEOT6H-MbyyYdoapqyzubMM8EyHIH1tg9-z0hTK1Ve-rmmRslMzkfRSYkW1NmxgYw5bfCIQRYRTms1JEE2eE50O_BBy29qO_AePkFwb5gfTri5pe-VDJuAfw-0TP9UNjhw",
   STADIUM_MAP: "https://lh3.googleusercontent.com/aida-public/AB6AXuALXIuDbnsX0vbbjb_eZFbw1EsyA1knLKizHq3rPNgUWWZ96DTKGW2M0ahZm4QHcL67X7ZRrA6saxH0nXuo7CHSBet4qJOP-ktIjJyCc5cgMEQ7HJ7RqDKC8pCcjNiWcNU9WMF1o6qIClbxTmJS2t9ZhjRGAj1uVJMyNo7xl9Vxk1jIt27VvvhDyaNfxywAzQOd-tPLeTwMQQEWPrOoGiBx0xl-BV6OnYgdiJjiiuFJE6PuolEBmhTKP2Rk4YuiufWggShVHdQj8rc",
@@ -17,10 +28,10 @@ export const IMAGES = {
 };
 
 export const SQUAD_DATA = [
-  { id: 1, name: "Sam Kerr", number: 20, position: "Forward", image: IMAGES.SAM_KERR, isStar: true },
-  { id: 2, name: "Lauren James", number: 10, position: "Forward", image: IMAGES.PLAYER_1 },
-  { id: 3, name: "Guro Reiten", number: 11, position: "Midfielder", image: IMAGES.PLAYER_2 },
-  { id: 4, name: "Millie Bright", number: 4, position: "Defender", image: IMAGES.PLAYER_3 },
+  { id: 1, name: "Sam Kerr", number: 20, position: "Forward", image: IMAGES.SAM_KERR, isStar: true, statLine: "12 goals · WSL 24/25" },
+  { id: 2, name: "Lauren James", number: 10, position: "Forward", image: IMAGES.PLAYER_1, statLine: "8 goals · 15 apps" },
+  { id: 3, name: "Guro Reiten", number: 11, position: "Midfielder", image: IMAGES.PLAYER_2, statLine: "6 assists · Norway" },
+  { id: 4, name: "Millie Bright", number: 4, position: "Defender", image: IMAGES.PLAYER_3, statLine: "Captain · England" },
 ];
 
 export const STAFF_DATA = [
@@ -33,4 +44,60 @@ export const STORIES_DATA = [
   { id: 2, name: "Matchday", image: IMAGES.MATCHDAY_EXP, seen: false },
   { id: 3, name: "Sam Kerr", image: IMAGES.SAM_KERR, seen: true },
   { id: 4, name: "Academy", image: IMAGES.DEVELOPMENT, seen: true },
+];
+
+// --- Treasure Hunt (mobile-first mini-game) ---
+
+/** Synchronized "half-time" / break-time start (ISO string UTC). Demo: 15 Mar 2025 12:00 GMT. */
+export const TREASURE_HUNT_BREAK_TIME_UTC = '2025-03-15T12:00:00.000Z';
+
+export const TREASURE_HUNT = {
+  BREAK_TIME_LABEL: 'Half-time (synchronized start): 15 Mar 2025, 12:00 GMT',
+  CLUE: 'Where do the Blues play at home? Browse chelseafc.com to find the treasure. We’ll detect when you’re on the right page.',
+  REWARD_LABEL: 'Membership voucher, gift voucher, or special offer',
+} as const;
+
+export interface TreasureQuestion {
+  id: string;
+  question: string;
+  options: { id: string; label: string; correct: boolean }[];
+  difficulty: 'easy' | 'medium' | 'hard';
+}
+
+/** Three question sets (easy → medium → hard); one wrong = eliminated */
+export const TREASURE_QUESTION_SETS: TreasureQuestion[][] = [
+  [
+    { id: 'a1', question: "In which decade did Chelsea FC win their first league title?", options: [{ id: 'a', label: '1950s', correct: true }, { id: 'b', label: '1960s', correct: false }, { id: 'c', label: '1990s', correct: false }, { id: 'd', label: '2000s', correct: false }], difficulty: 'easy' },
+    { id: 'a2', question: "Chelsea Women won the WSL and FA Cup double in the same season. Which year?", options: [{ id: 'a', label: '2015', correct: true }, { id: 'b', label: '2017', correct: false }, { id: 'c', label: '2020', correct: false }, { id: 'd', label: '2022', correct: false }], difficulty: 'medium' },
+    { id: 'a3', question: "What is the name of Chelsea's home stadium?", options: [{ id: 'a', label: 'Emirates', correct: false }, { id: 'b', label: 'Stamford Bridge', correct: true }, { id: 'c', label: 'Wembley', correct: false }, { id: 'd', label: 'King Power', correct: false }], difficulty: 'hard' },
+  ],
+  [
+    { id: 'b1', question: "What colour is prominently featured on Chelsea's home kit?", options: [{ id: 'a', label: 'Red', correct: false }, { id: 'b', label: 'Blue', correct: true }, { id: 'c', label: 'White', correct: false }, { id: 'd', label: 'Yellow', correct: false }], difficulty: 'easy' },
+    { id: 'b2', question: "Chelsea Men's first Champions League triumph was in which city?", options: [{ id: 'a', label: 'London', correct: false }, { id: 'b', label: 'Munich', correct: true }, { id: 'c', label: 'Manchester', correct: false }, { id: 'd', label: 'Milan', correct: false }], difficulty: 'medium' },
+    { id: 'b3', question: "In which year did Chelsea Women complete a domestic quadruple?", options: [{ id: 'a', label: '2020', correct: false }, { id: 'b', label: '2021', correct: true }, { id: 'c', label: '2022', correct: false }, { id: 'd', label: '2023', correct: false }], difficulty: 'hard' },
+  ],
+  [
+    { id: 'c1', question: "Who managed Chelsea Women to their first UEFA Women's Champions League final?", options: [{ id: 'a', label: 'Emma Hayes', correct: true }, { id: 'b', label: 'Casey Stoney', correct: false }, { id: 'c', label: 'Joe Montemurro', correct: false }, { id: 'd', label: 'Marc Skinner', correct: false }], difficulty: 'easy' },
+    { id: 'c2', question: "Which Chelsea player scored the winning penalty in the 2012 Champions League final?", options: [{ id: 'a', label: 'Didier Drogba', correct: true }, { id: 'b', label: 'Frank Lampard', correct: false }, { id: 'c', label: 'Petr Čech', correct: false }, { id: 'd', label: 'Juan Mata', correct: false }], difficulty: 'medium' },
+    { id: 'c3', question: "Which Chelsea Women player has won the most WSL Golden Boots (as of recent seasons)?", options: [{ id: 'a', label: 'Sam Kerr', correct: true }, { id: 'b', label: 'Fran Kirby', correct: false }, { id: 'c', label: 'Beth England', correct: false }, { id: 'd', label: 'Eni Aluko', correct: false }], difficulty: 'hard' },
+  ],
+];
+
+export interface LeaderboardEntry {
+  rank: number;
+  displayName: string;
+  score: number;
+  totalTimeSec: number;
+  completed: boolean;
+}
+
+/** Mock leaderboard for prototype */
+export const MOCK_LEADERBOARD: LeaderboardEntry[] = [
+  { rank: 1, displayName: 'BlueLion99', score: 100, totalTimeSec: 142, completed: true },
+  { rank: 2, displayName: 'CFCW_Fan', score: 100, totalTimeSec: 168, completed: true },
+  { rank: 3, displayName: 'Stamford_Sarah', score: 100, totalTimeSec: 195, completed: true },
+  { rank: 4, displayName: 'Kerr_No1', score: 100, totalTimeSec: 210, completed: true },
+  { rank: 5, displayName: 'Chelsea_Blue', score: 100, totalTimeSec: 233, completed: true },
+  { rank: 6, displayName: 'WSL_Supporter', score: 0, totalTimeSec: 0, completed: false },
+  { rank: 7, displayName: 'Bridge_Believer', score: 0, totalTimeSec: 0, completed: false },
 ];

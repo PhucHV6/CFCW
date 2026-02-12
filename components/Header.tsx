@@ -1,4 +1,5 @@
 import React from 'react';
+import { CHELSEA_LOGO } from '../constants';
 
 interface HeaderProps {
   title?: string;
@@ -21,14 +22,14 @@ const Header: React.FC<HeaderProps> = ({
   variant = 'default',
   logoMode = false
 }) => {
-  const baseClasses = "fixed top-0 left-0 right-0 z-50 transition-all duration-300";
+  const baseClasses = "fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[428px] z-50 transition-all duration-300 pt-[env(safe-area-inset-top)]";
   const styleClasses = variant === 'transparent' 
     ? "bg-transparent text-white" 
-    : "bg-chelsea-dark/95 backdrop-blur-md border-b border-white/5 text-white";
+    : "bg-chelsea-dark/98 backdrop-blur-xl border-b border-white/10 text-white shadow-[0_2px_16px_rgba(0,0,0,0.15)]";
 
   return (
-    <header className={`${baseClasses} ${styleClasses}`}>
-      <div className="h-16 px-4 flex items-center justify-between max-w-md mx-auto w-full">
+    <header className={`shrink-0 ${baseClasses} ${styleClasses}`}>
+      <div className="h-14 min-h-[56px] px-4 flex items-center justify-between w-full">
         {/* Left Action (Back or Logo Icon) */}
         <div className="w-10 flex items-center justify-start">
           {showBack ? (
@@ -39,8 +40,8 @@ const Header: React.FC<HeaderProps> = ({
               <span className="material-symbols-outlined text-xl">arrow_back_ios_new</span>
             </button>
           ) : logoMode ? (
-            <div className="w-8 h-8 rounded-full bg-chelsea-blue flex items-center justify-center shadow-lg shadow-blue-900/50">
-              <span className="material-symbols-outlined text-white text-sm">sports_soccer</span>
+            <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-lg border border-white/20 overflow-hidden shrink-0">
+              <img src={CHELSEA_LOGO} alt="Chelsea FC" className="w-full h-full object-contain p-1" />
             </div>
           ) : null}
         </div>
@@ -48,8 +49,9 @@ const Header: React.FC<HeaderProps> = ({
         {/* Center Title */}
         <div className="flex-1 flex items-center justify-center">
           {logoMode ? (
-             <h1 className="text-lg font-bold tracking-tight uppercase italic">
-               CFCW<span className="text-chelsea-blue">Hub</span>
+             <h1 className="text-base font-bold tracking-tight uppercase">
+               <span className="text-chelsea-blue">Women</span>
+               <span className="text-white/90">’s Hub</span>
              </h1>
           ) : (
             <h1 className="text-base font-bold tracking-wider uppercase text-center truncate px-2">
@@ -71,7 +73,7 @@ const Header: React.FC<HeaderProps> = ({
       
       {/* Optional Bottom Content (Tabs, etc) */}
       {children && (
-        <div className="px-4 pb-3 max-w-md mx-auto w-full animate-in fade-in slide-in-from-top-2 duration-300">
+        <div className="px-4 pb-3 w-full animate-in fade-in slide-in-from-top-2 duration-300">
           {children}
         </div>
       )}

@@ -1,32 +1,20 @@
 import React, { useState } from 'react';
-import { IMAGES, STORIES_DATA } from '../constants';
+import { IMAGES } from '../constants';
+import { Screen } from '../types';
 import Header from '../components/Header';
 import PageLayout from '../components/PageLayout';
 
-const HomeScreen: React.FC = () => {
+interface HomeScreenProps {
+  onNavigate?: (screen: Screen) => void;
+}
+
+const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
   const [predicted, setPredicted] = useState(false);
 
   return (
-    <>
+    <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
       <Header logoMode />
-      
       <PageLayout className="space-y-8">
-        {/* Stories Rail - Key Features: Interaction Idea */}
-        <section className="overflow-x-auto hide-scrollbar -mx-4 px-4 pt-2">
-          <div className="flex gap-4">
-            {STORIES_DATA.map((story) => (
-              <div key={story.id} className="flex flex-col items-center gap-1 cursor-pointer group">
-                <div className={`w-[68px] h-[68px] rounded-full p-[2px] ${story.seen ? 'bg-white/10' : 'bg-gradient-to-tr from-chelsea-blue to-blue-400'}`}>
-                  <div className="w-full h-full rounded-full border-2 border-chelsea-dark overflow-hidden">
-                    <img src={story.image} alt={story.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                  </div>
-                </div>
-                <span className="text-[10px] font-medium text-white">{story.name}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* Featured Video - Key Features: Big moments */}
         <section className="relative aspect-video w-full overflow-hidden rounded-unified shadow-2xl group cursor-pointer border border-white/5">
           <img 
@@ -107,6 +95,28 @@ const HomeScreen: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Matchday Treasure Hunt - Start game (demo: full user journey) */}
+        {onNavigate && (
+          <button
+            type="button"
+            onClick={() => onNavigate(Screen.TREASURE_HUNT)}
+            className="w-full min-h-[56px] flex items-center gap-4 p-4 rounded-unified bg-gradient-to-r from-amber-500/20 to-chelsea-blue/20 border-2 border-amber-500/40 text-left hover:border-amber-400/60 hover:from-amber-500/25 hover:to-chelsea-blue/25 transition-all active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-amber-400/50"
+            aria-label="Play Matchday Treasure Hunt game"
+          >
+            <div className="w-12 h-12 rounded-full bg-amber-500/30 flex items-center justify-center shrink-0 border border-amber-400/30">
+              <span className="material-symbols-outlined text-2xl text-amber-300">military_tech</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 flex-wrap">
+                <h3 className="font-bold text-white text-base">Play Matchday Treasure Hunt</h3>
+                <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-chelsea-blue/40 text-chelsea-blue border border-chelsea-blue/50">Matchday</span>
+              </div>
+              <p className="text-[11px] text-gray-400 mt-1">Start the game — find the treasure, answer 3 questions, claim rewards</p>
+            </div>
+            <span className="material-symbols-outlined text-amber-400 shrink-0" aria-hidden>play_circle</span>
+          </button>
+        )}
 
         {/* Gamified Fan Zone - Data Capture */}
         <section className="space-y-4">
@@ -202,7 +212,7 @@ const HomeScreen: React.FC = () => {
           </div>
         </section>
       </PageLayout>
-    </>
+    </div>
   );
 };
 

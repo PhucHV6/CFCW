@@ -5,6 +5,7 @@ import MatchdayScreen from './screens/MatchdayScreen';
 import RosterScreen from './screens/RosterScreen';
 import PlayerProfileScreen from './screens/PlayerProfileScreen';
 import AboutScreen from './screens/AboutScreen';
+import TreasureHuntScreen from './screens/TreasureHuntScreen';
 import { Screen } from './types';
 
 const App: React.FC = () => {
@@ -13,7 +14,7 @@ const App: React.FC = () => {
   const renderScreen = () => {
     switch (currentScreen) {
       case Screen.HOME:
-        return <HomeScreen />;
+        return <HomeScreen onNavigate={setCurrentScreen} />;
       case Screen.MATCHDAY:
         return <MatchdayScreen />;
       case Screen.ROSTER:
@@ -22,15 +23,23 @@ const App: React.FC = () => {
         return <PlayerProfileScreen onBack={() => setCurrentScreen(Screen.ROSTER)} />;
       case Screen.ABOUT:
         return <AboutScreen />;
+      case Screen.TREASURE_HUNT:
+        return <TreasureHuntScreen onBack={() => setCurrentScreen(Screen.HOME)} />;
       default:
-        return <HomeScreen />;
+        return <HomeScreen onNavigate={setCurrentScreen} />;
     }
   };
 
+  const showBottomNav = currentScreen !== Screen.TREASURE_HUNT;
+
   return (
-    <div className="max-w-md mx-auto min-h-screen bg-chelsea-dark relative shadow-2xl overflow-hidden">
-      {renderScreen()}
-      <BottomNav currentScreen={currentScreen} onNavigate={setCurrentScreen} />
+    <div className="w-full max-w-[428px] mx-auto h-full min-h-0 bg-chelsea-dark relative flex flex-col shadow-[0_0_0_1px_rgba(255,255,255,0.06)] md:shadow-2xl md:rounded-[2rem] md:min-h-[640px] overflow-hidden">
+      <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+        {renderScreen()}
+      </div>
+      {showBottomNav && (
+        <BottomNav currentScreen={currentScreen} onNavigate={setCurrentScreen} />
+      )}
     </div>
   );
 };

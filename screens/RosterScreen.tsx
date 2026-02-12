@@ -17,7 +17,7 @@ const RosterScreen: React.FC<RosterScreenProps> = ({ onNavigate }) => {
     : SQUAD_DATA.filter(p => p.position.includes(positionFilter));
 
   return (
-    <>
+    <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
       <Header title="Team Profiles">
         <div className="flex border-b border-white/10">
            <button 
@@ -39,47 +39,54 @@ const RosterScreen: React.FC<RosterScreenProps> = ({ onNavigate }) => {
 
       <PageLayout className="pt-32">
         {activeTab === 'squad' ? (
-            <div className="space-y-6">
-                {/* Filter Pills */}
-                <div className="flex gap-2 overflow-x-auto hide-scrollbar -mx-2 px-2 pb-1">
-                    {['All', 'Forward', 'Midfielder', 'Defender', 'Goalkeeper'].map(pos => (
-                        <button 
-                            key={pos}
-                            onClick={() => setPositionFilter(pos)}
-                            className={`px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wide border transition-all whitespace-nowrap ${positionFilter === pos ? 'bg-chelsea-blue border-chelsea-blue text-white' : 'bg-transparent border-white/20 text-gray-400'}`}
-                        >
-                            {pos}
-                        </button>
-                    ))}
-                </div>
+            <div className="space-y-5">
+                {/* Quick jump by position – fix: "no quick jump options" */}
+                <section aria-label="Quick jump by position">
+                    <p className="text-[10px] font-bold text-chelsea-blue uppercase tracking-wider mb-2 px-1">Quick jump</p>
+                    <div className="flex gap-2 overflow-x-auto hide-scrollbar -mx-1 px-1 pb-1">
+                        {['All', 'Forward', 'Midfielder', 'Defender', 'Goalkeeper'].map(pos => (
+                            <button
+                                key={pos}
+                                onClick={() => setPositionFilter(pos)}
+                                className={`min-h-[44px] px-4 py-2 rounded-xl text-sm font-bold uppercase tracking-wide border transition-all whitespace-nowrap ${positionFilter === pos ? 'bg-chelsea-blue border-chelsea-blue text-white' : 'bg-surface-dark border-white/20 text-gray-400 hover:border-white/30'}`}
+                            >
+                                {pos}
+                            </button>
+                        ))}
+                    </div>
+                </section>
 
                 <div className="grid grid-cols-2 gap-4">
-                    {/* Featured Player (Only show if ALL or Forward is selected) */}
+                    {/* Featured Player (All or Forward) */}
                     {(positionFilter === 'All' || positionFilter === 'Forward') && (
-                        <div 
-                        onClick={() => onNavigate(Screen.PROFILE)}
-                        className="col-span-2 relative h-64 rounded-2xl overflow-hidden cursor-pointer group border border-white/10 shadow-2xl"
+                        <div
+                            onClick={() => onNavigate(Screen.PROFILE)}
+                            className="col-span-2 relative h-64 rounded-2xl overflow-hidden cursor-pointer group border border-white/10 shadow-2xl"
                         >
                             <img src={IMAGES.SAM_KERR} alt="Sam Kerr" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-chelsea-blue/90 via-transparent to-transparent"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-chelsea-blue/90 via-transparent to-transparent" />
                             <div className="absolute bottom-4 left-4">
                                 <span className="text-[10px] font-bold text-white bg-white/20 px-2 py-0.5 rounded backdrop-blur-md uppercase tracking-wider">Captain</span>
                                 <h3 className="text-3xl font-black text-white italic leading-none mt-1">KERR <span className="text-lg not-italic align-top opacity-50">20</span></h3>
+                                <p className="text-sm text-white/90 mt-1">12 goals · WSL 24/25</p>
                             </div>
                         </div>
                     )}
 
                     {filteredSquad.filter(p => !p.isStar).map((player) => (
-                        <div key={player.id} className="bg-surface-dark rounded-xl overflow-hidden border border-white/5 cursor-pointer hover:border-chelsea-blue/50 transition-colors group">
-                            <div className="h-40 relative overflow-hidden">
+                        <div key={player.id} onClick={() => onNavigate(Screen.PROFILE)} className="bg-surface-dark rounded-xl overflow-hidden border border-white/5 cursor-pointer hover:border-chelsea-blue/50 transition-colors group min-h-[44px]">
+                            <div className="h-36 relative overflow-hidden">
                                 <img src={player.image} alt={player.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
-                                <div className="absolute bottom-0 left-0 bg-chelsea-blue text-white text-xs font-bold px-2 py-1 rounded-tr-lg">
+                                <div className="absolute bottom-0 left-0 bg-chelsea-blue text-white text-sm font-bold px-2 py-1 rounded-tr-lg">
                                     {player.number}
                                 </div>
                             </div>
                             <div className="p-3">
-                                <h4 className="font-bold text-white leading-tight">{player.name}</h4>
-                                <p className="text-[10px] text-gray-500 uppercase tracking-wider mt-1">{player.position}</p>
+                                <h4 className="text-base font-bold text-white leading-tight">{player.name}</h4>
+                                <p className="text-sm text-gray-400 uppercase tracking-wider mt-0.5">{player.position}</p>
+                                {(player as { statLine?: string }).statLine && (
+                                    <p className="text-xs text-chelsea-blue mt-1.5 font-medium">{(player as { statLine: string }).statLine}</p>
+                                )}
                             </div>
                         </div>
                     ))}
@@ -87,17 +94,18 @@ const RosterScreen: React.FC<RosterScreenProps> = ({ onNavigate }) => {
             </div>
         ) : (
             <div className="space-y-4">
-                 {STAFF_DATA.map((staff) => (
-                    <div key={staff.id} className="flex items-center gap-4 bg-surface-dark p-4 rounded-xl border border-white/5">
-                        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white/10">
+                <p className="text-[10px] font-bold text-chelsea-blue uppercase tracking-wider px-1">Staff</p>
+                {STAFF_DATA.map((staff) => (
+                    <div key={staff.id} className="flex items-center gap-4 bg-surface-dark p-4 rounded-xl border border-white/5 min-h-[72px]">
+                        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white/10 shrink-0">
                             <img src={staff.image} alt={staff.name} className="w-full h-full object-cover" />
                         </div>
-                        <div>
+                        <div className="min-w-0">
                             <h4 className="text-lg font-bold text-white">{staff.name}</h4>
-                            <p className="text-chelsea-blue text-xs font-bold uppercase tracking-widest">{staff.role}</p>
+                            <p className="text-chelsea-blue text-sm font-bold uppercase tracking-wider mt-0.5">{staff.role}</p>
                         </div>
                     </div>
-                 ))}
+                ))}
                  
                  <div className="mt-8 p-6 bg-gradient-to-br from-chelsea-blue/20 to-transparent rounded-2xl border border-chelsea-blue/20 text-center">
                     <span className="material-symbols-outlined text-chelsea-blue text-4xl mb-2">diversity_3</span>
@@ -108,7 +116,7 @@ const RosterScreen: React.FC<RosterScreenProps> = ({ onNavigate }) => {
             </div>
         )}
       </PageLayout>
-    </>
+    </div>
   );
 };
 

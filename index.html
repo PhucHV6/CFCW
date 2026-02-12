@@ -2,8 +2,8 @@
 <html lang="en" class="dark">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Chelsea FC Women</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Chelsea FC Women’s Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
@@ -30,10 +30,27 @@
         }
     </script>
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
         body {
             background-color: #0A0A0A;
             font-family: 'Lexend', sans-serif;
             -webkit-tap-highlight-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        @media (min-width: 429px) {
+            body {
+                background: linear-gradient(180deg, #0f0f12 0%, #0A0A0A 100%);
+            }
+        }
+        #root {
+            width: 100%;
+            max-width: 428px;
+            min-height: 100%;
         }
         .hide-scrollbar::-webkit-scrollbar {
             display: none;
@@ -61,6 +78,7 @@
 </script>
 </head>
 <body class="bg-chelsea-dark text-white h-screen overflow-hidden">
-    <div id="root"></div>
+    <div id="root" class="h-full"></div>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>

@@ -20,37 +20,34 @@ const BottomNav: React.FC<BottomNavProps> = ({ currentScreen, onNavigate }) => {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-surface-dark/95 backdrop-blur-xl border-t border-white/5 pb-8 pt-3 px-6 z-50">
-      <div className="max-w-md mx-auto flex justify-between items-center">
+    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[428px] bg-surface-dark/98 backdrop-blur-xl border-t border-white/10 rounded-t-[1.25rem] pt-3 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] z-50 shadow-[0_-4px_24px_rgba(0,0,0,0.2)]">
+      <div className="flex justify-between items-center gap-1">
         <button 
           onClick={() => onNavigate(Screen.HOME)}
-          className={`flex flex-col items-center gap-1.5 transition-all duration-200 ${getTabClass(currentScreen === Screen.HOME)}`}
+          className={`flex-1 flex flex-col items-center gap-1 min-h-[56px] justify-center rounded-xl transition-all duration-200 active:scale-95 ${getTabClass(currentScreen === Screen.HOME)}`}
         >
-          <span className={`material-symbols-outlined text-2xl ${getIconClass(currentScreen === Screen.HOME)}`}>home</span>
+          <span className={`material-symbols-outlined text-[22px] ${getIconClass(currentScreen === Screen.HOME)}`}>home</span>
           <span className="text-[10px] font-bold uppercase tracking-widest">Home</span>
         </button>
-
         <button 
           onClick={() => onNavigate(Screen.MATCHDAY)}
-          className={`flex flex-col items-center gap-1.5 transition-all duration-200 ${getTabClass(currentScreen === Screen.MATCHDAY)}`}
+          className={`flex-1 flex flex-col items-center gap-1 min-h-[56px] justify-center rounded-xl transition-all duration-200 active:scale-95 ${getTabClass(currentScreen === Screen.MATCHDAY)}`}
         >
-          <span className={`material-symbols-outlined text-2xl ${getIconClass(currentScreen === Screen.MATCHDAY)}`}>stadium</span>
+          <span className={`material-symbols-outlined text-[22px] ${getIconClass(currentScreen === Screen.MATCHDAY)}`}>stadium</span>
           <span className="text-[10px] font-bold uppercase tracking-widest">Matchday</span>
         </button>
-
         <button 
           onClick={() => onNavigate(Screen.ROSTER)}
-          className={`flex flex-col items-center gap-1.5 transition-all duration-200 ${getTabClass(isProfileActive)}`}
+          className={`flex-1 flex flex-col items-center gap-1 min-h-[56px] justify-center rounded-xl transition-all duration-200 active:scale-95 ${getTabClass(isProfileActive)}`}
         >
-          <span className={`material-symbols-outlined text-2xl ${getIconClass(isProfileActive)}`}>groups</span>
+          <span className={`material-symbols-outlined text-[22px] ${getIconClass(isProfileActive)}`}>groups</span>
           <span className="text-[10px] font-bold uppercase tracking-widest">Profiles</span>
         </button>
-
         <button 
           onClick={() => onNavigate(Screen.ABOUT)}
-          className={`flex flex-col items-center gap-1.5 transition-all duration-200 ${getTabClass(currentScreen === Screen.ABOUT)}`}
+          className={`flex-1 flex flex-col items-center gap-1 min-h-[56px] justify-center rounded-xl transition-all duration-200 active:scale-95 ${getTabClass(currentScreen === Screen.ABOUT)}`}
         >
-          <span className={`material-symbols-outlined text-2xl ${getIconClass(currentScreen === Screen.ABOUT)}`}>info</span>
+          <span className={`material-symbols-outlined text-[22px] ${getIconClass(currentScreen === Screen.ABOUT)}`}>info</span>
           <span className="text-[10px] font-bold uppercase tracking-widest">About</span>
         </button>
       </div>

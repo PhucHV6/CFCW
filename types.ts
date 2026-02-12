@@ -3,8 +3,20 @@ export enum Screen {
   MATCHDAY = 'matchday',
   ROSTER = 'roster',
   PROFILE = 'profile',
-  ABOUT = 'about'
+  ABOUT = 'about',
+  TREASURE_HUNT = 'treasure_hunt',
 }
+
+/** Treasure Hunt game phase (mobile-first flow) */
+export type TreasureHuntPhase =
+  | 'intro'
+  | 'play'
+  | 'found'
+  | 'questions'
+  | 'eliminated'
+  | 'reward_unlocked'
+  | 'leaderboard'
+  | 'claim';
 
 export interface MatchProps {
   opponent: string;

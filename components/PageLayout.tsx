@@ -12,8 +12,8 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   className = ""
 }) => {
   return (
-    <div className={`min-h-screen bg-chelsea-dark text-white pb-32 ${noPaddingTop ? 'pt-0' : 'pt-20'} ${className} animate-in fade-in duration-500`}>
-      <main className="max-w-md mx-auto w-full px-4">
+    <div className={`flex-1 min-h-0 overflow-y-auto overflow-x-hidden hide-scrollbar bg-chelsea-dark text-white pb-[max(7rem,calc(5rem+env(safe-area-inset-bottom)))] ${noPaddingTop ? 'pt-0' : 'pt-20'} ${className} animate-in fade-in duration-500`}>
+      <main className="mx-auto w-full px-4 max-w-[428px]">
         {children}
       </main>
     </div>

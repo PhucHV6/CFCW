@@ -9,7 +9,7 @@ interface PlayerProfileProps {
 
 const PlayerProfileScreen: React.FC<PlayerProfileProps> = ({ onBack }) => {
   return (
-    <>
+    <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
       <Header 
         title="Player Profile" 
         showBack 
@@ -182,7 +182,7 @@ const PlayerProfileScreen: React.FC<PlayerProfileProps> = ({ onBack }) => {
           <span className="material-symbols-outlined text-2xl fill-1">favorite</span>
         </button>
       </div>
-    </>
+    </div>
   );
 };
 

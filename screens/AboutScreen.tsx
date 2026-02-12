@@ -1,14 +1,13 @@
 import React from 'react';
-import { IMAGES } from '../constants';
+import { IMAGES, CFCW_LINKS } from '../constants';
 import Header from '../components/Header';
 import PageLayout from '../components/PageLayout';
 
 const AboutScreen: React.FC = () => {
   return (
-    <>
+    <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
       <Header title="About CFCW" />
-      
-      <PageLayout className="pt-24">
+      <PageLayout className="space-y-0">
         {/* Hero */}
         <section className="mb-10">
           <div className="relative h-56 w-full rounded-2xl overflow-hidden mb-6 shadow-2xl border border-white/5 group">
@@ -140,7 +139,7 @@ const AboutScreen: React.FC = () => {
         </section>
 
         {/* Membership CTA */}
-        <section className="text-center">
+        <section className="text-center mb-10">
           <h4 className="text-xl font-bold mb-3 italic uppercase tracking-tight text-white">The Blue Thread</h4>
           <p className="text-gray-500 text-sm leading-relaxed mb-8 px-4">
              Our history is written by those who believe. Our future is forged by those who dare.
@@ -150,8 +149,27 @@ const AboutScreen: React.FC = () => {
             <span className="material-symbols-outlined">chevron_right</span>
           </button>
         </section>
+
+        {/* Official chelseafc.com links */}
+        <section className="pt-4 border-t border-white/10">
+          <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-3">On chelseafc.com</h3>
+          <div className="space-y-2">
+            <a href={CFCW_LINKS.MATCHDAY_GUIDE} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
+              <span className="font-medium text-white text-sm">Women’s Matchday Guide</span>
+              <span className="material-symbols-outlined text-gray-500 group-hover:text-chelsea-blue text-lg">open_in_new</span>
+            </a>
+            <a href={CFCW_LINKS.TEAM_PROFILES} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
+              <span className="font-medium text-white text-sm">Player & Staff Profiles</span>
+              <span className="material-symbols-outlined text-gray-500 group-hover:text-chelsea-blue text-lg">open_in_new</span>
+            </a>
+            <a href={CFCW_LINKS.ABOUT} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
+              <span className="font-medium text-white text-sm">About Chelsea FC Women</span>
+              <span className="material-symbols-outlined text-gray-500 group-hover:text-chelsea-blue text-lg">open_in_new</span>
+            </a>
+          </div>
+        </section>
       </PageLayout>
-    </>
+    </div>
   );
 };
 

@@ -1,20 +1,47 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Chelsea FC Women Hub — Hackathon Prototype
 
-# Run and deploy your AI Studio app
+A **lightweight, mid-fi prototype** for a Chelsea FC Women fan hub: discovery, engagement, tickets, merch, and data capture in one mobile-first experience.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/drive/1mIZYunQdG2UHRiHGXuwnyur22qHjADyq
+## What this is
 
-## Run Locally
+- **Prototype only** — Ideas and potential directions for a CFCW hub. Not production-ready; no real checkout, auth, or CMS.
+- **Clickable and scrollable** — Run the app to see layout, hierarchy, and key journeys.
+- **Hackathon submission** — Designed to meet the brief: prototypes, concepts, IA, user flows, and key features.
 
-**Prerequisites:**  Node.js
+👉 **Full submission write-up:** [**HACKATHON.md**](./HACKATHON.md) — concepts, information architecture, user flow diagrams (Mermaid), and feature/interaction ideas.
 
+---
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Run locally
+
+**Prerequisites:** Node.js
+
+1. Install dependencies: `npm install`
+2. Run the app: `npm run dev`
+3. Open the URL shown (e.g. `http://localhost:5173`) in your browser.
+
+---
+
+## What you’ll see
+
+| Area | Purpose |
+|------|--------|
+| **Home** | Featured video, next fixture (Buy Tickets), Matchday Guide & Store links, Treasure Hunt card, Fan Zone (predict the score + email), trending moments |
+| **Matchday** | Venue toggle (Stamford Bridge / Kingsmeadow), “Are you attending?”, travel, stadium map, tips |
+| **Profiles** | Squad & staff tabs, position filter, tap through to player profile |
+| **About** | Club history, honours timeline, legacy |
+| **Treasure Hunt** | Mobile-first mini-game: find treasure on chelseafc.com, answer 3 questions (one wrong = out), leaderboard, claim with Register/Login. See [TREASURE_HUNT_DESIGN.md](./TREASURE_HUNT_DESIGN.md). |
+
+---
+
+## Tech
+
+- React 19, TypeScript, Vite
+- Tailwind-style utility classes (custom Chelsea palette)
+- No backend; static data and local state only
+
+---
+
+*Hackathon exploration only — not an official Chelsea FC product.*
