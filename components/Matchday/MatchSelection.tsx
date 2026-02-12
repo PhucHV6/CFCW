@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Match, Persona } from '../../types';
+import { CLUB_LOGOS } from '../../constants';
 
 interface Props {
     persona: Persona | null;
@@ -13,11 +14,12 @@ const MatchSelection: React.FC<Props> = ({ persona, matches, onSelect, onBack })
     const [expandedId, setExpandedId] = useState<string | null>(null);
 
     const getOpponentLogo = (opponent: string) => {
-        if (opponent.toLowerCase().includes('city')) return 'https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/1200px-Manchester_City_FC_badge.svg.png';
-        if (opponent.toLowerCase().includes('arsenal')) return 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7c/Arsenal_FC.svg/1200px-Arsenal_FC.svg.png';
-        if (opponent.toLowerCase().includes('west ham')) return 'https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/West_Ham_United_FC_logo.svg/1200px-West_Ham_United_FC_logo.svg.png';
-        if (opponent.toLowerCase().includes('liverpool')) return 'https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/1200px-Liverpool_FC.svg.png';
-        return 'https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Brighton_%26_Hove_Albion_logo.svg/1200px-Brighton_%26_Hove_Albion_logo.svg.png';
+        const lowerOpponent = opponent.toLowerCase();
+        if (lowerOpponent.includes('city')) return CLUB_LOGOS.MANCHESTER_CITY;
+        if (lowerOpponent.includes('arsenal')) return CLUB_LOGOS.ARSENAL;
+        if (lowerOpponent.includes('west ham')) return CLUB_LOGOS.WEST_HAM;
+        if (lowerOpponent.includes('liverpool')) return CLUB_LOGOS.LIVERPOOL;
+        return CLUB_LOGOS.BRIGHTON;
     };
 
     const getStatusDisplay = (status: Match['status']) => {

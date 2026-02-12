@@ -22,6 +22,8 @@ export const CLUB_LOGOS = {
   REAL_MADRID: 'https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg',
   BAYERN_MUNICH: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg',
   PARIS_SG: 'https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg',
+  WEST_HAM: 'https://upload.wikimedia.org/wikipedia/en/c/c2/West_Ham_United_FC_logo.svg',
+  BRIGHTON: 'https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_Albion_logo.svg',
   OPPONENT_LOGO: 'https://crests.football-data.org/57.svg',
 } as const;
 
