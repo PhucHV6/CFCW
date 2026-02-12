@@ -41,7 +41,7 @@ const RosterScreen: React.FC<RosterScreenProps> = ({ onNavigate }) => {
 
     return (
         <div className="flex flex-col flex-1 min-h-0 overflow-hidden bg-chelsea-blue">
-            <Header title="Team Profiles">
+            <Header title="Team Profiles" onNavigate={onNavigate}>
                 <div className="grid grid-cols-4 w-full border-b border-white/10">
                     {squadTypes.map((type) => (
                         <button

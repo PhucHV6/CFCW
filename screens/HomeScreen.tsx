@@ -23,7 +23,7 @@ interface HomeScreenProps {
 const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
   return (
     <div className="flex flex-col flex-1 min-h-0 overflow-hidden bg-white relative">
-      <Header onRightAction={() => console.log('Account')} />
+      <Header onRightAction={() => console.log('Account')} onNavigate={onNavigate} />
       {/* Spacer for fixed Header */}
       <div className="h-16 pt-[env(safe-area-inset-top)]" />
       <SmartTicker />

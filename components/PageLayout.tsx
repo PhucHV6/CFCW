@@ -5,16 +5,18 @@ interface PageLayoutProps {
   noPaddingTop?: boolean;
   hidePadding?: boolean;
   className?: string;
+  scrollRef?: React.RefObject<HTMLDivElement | null>;
 }
 
 const PageLayout: React.FC<PageLayoutProps> = ({
   children,
   noPaddingTop = false,
   hidePadding = false,
-  className = ""
+  className = "",
+  scrollRef
 }) => {
   return (
-    <div className={`flex-1 min-h-0 overflow-y-auto overflow-x-hidden hide-scrollbar bg-chelsea-blue text-white pb-[max(106px,calc(74px+env(safe-area-inset-bottom)))] ${noPaddingTop ? 'pt-0' : 'pt-0'} animate-in fade-in duration-500`}>
+    <div ref={scrollRef} className={`flex-1 min-h-0 overflow-y-auto overflow-x-hidden hide-scrollbar bg-chelsea-blue text-white pb-[max(106px,calc(74px+env(safe-area-inset-bottom)))] ${noPaddingTop ? 'pt-0' : 'pt-0'} animate-in fade-in duration-500`}>
       <main className={`mx-auto w-full max-w-[393px] flex flex-col ${hidePadding ? 'px-0' : 'px-4'} ${className}`}>
         {children}
       </main>

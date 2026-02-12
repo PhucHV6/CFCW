@@ -3,7 +3,13 @@ import { IMAGES, CFCW_LINKS, CHELSEA_LOGO } from '../constants';
 import Header from '../components/Header';
 import PageLayout from '../components/PageLayout';
 
-const AboutScreen: React.FC = () => {
+import { Screen } from '../types';
+
+interface AboutScreenProps {
+  onNavigate?: (screen: Screen) => void;
+}
+
+const AboutScreen: React.FC<AboutScreenProps> = ({ onNavigate }) => {
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
 
   const timelineData = [
@@ -40,7 +46,7 @@ const AboutScreen: React.FC = () => {
 
   return (
     <div className="flex flex-col flex-1 min-h-0 overflow-hidden bg-chelsea-blue">
-      <Header title="About CFCW" />
+      <Header title="About CFCW" onNavigate={onNavigate} />
       <PageLayout className="space-y-[40px] pt-[74px] pb-10">
         {/* Section 1: Hero */}
         <section className="relative w-full h-[320px] overflow-hidden rounded-ios shadow-2xl border border-chelsea-border group">
